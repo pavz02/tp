@@ -51,6 +51,7 @@ public abstract class UiPart<T> {
         this(getFxmlFileUrl(fxmlFileName), root);
     }
 
+
     /**
      * Returns the root object of the scene graph of this UiPart.
      */
@@ -66,8 +67,8 @@ public abstract class UiPart<T> {
     private void loadFxmlFile(URL location, T root) {
         requireNonNull(location);
         fxmlLoader.setLocation(location);
-        fxmlLoader.setController(this);
         fxmlLoader.setRoot(root);
+        fxmlLoader.setController(this);
         try {
             fxmlLoader.load();
         } catch (IOException e) {
