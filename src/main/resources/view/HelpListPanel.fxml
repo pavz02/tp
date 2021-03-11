@@ -10,3 +10,4 @@
             prefHeight="25.0" prefWidth="250.0" text="Go back to the order list" textAlignment="CENTER" />
     <ListView fx:id="helpListView" VBox.vgrow="ALWAYS" />
 </VBox>
+
