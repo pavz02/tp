@@ -12,9 +12,9 @@ import seedu.address.model.person.Person;
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class PersonListCard extends UiPart<Region> {
+public class PersonCard extends UiPart<Region> {
 
-    private static final String FXML = "OrderListCard.fxml";
+    private static final String FXML = "PersonCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -44,7 +44,7 @@ public class PersonListCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public PersonListCard(Person person, int displayedIndex) {
+    public PersonCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
@@ -65,12 +65,12 @@ public class PersonListCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonListCard)) {
+        if (!(other instanceof PersonCard)) {
             return false;
         }
 
         // state check
-        PersonListCard card = (PersonListCard) other;
+        PersonCard card = (PersonCard) other;
         return id.getText().equals(card.id.getText())
                 && person.equals(card.person);
     }
