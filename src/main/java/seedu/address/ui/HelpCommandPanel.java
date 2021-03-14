@@ -3,51 +3,34 @@ package seedu.address.ui;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
 
 /**
- * Panel containing the list of persons.
+ * Panel containing the list of orders.
  */
-public class HelpCommandPanel extends UiPart<Region> {
-    private static final String FXML = "HelpListPanel.fxml";
+public class HelpCommandPanel extends Panel {
     private final Logger logger = LogsCenter.getLogger(HelpCommandPanel.class);
-    private MainWindow mw;
 
     @FXML
-    private ListView<String> helpListView;
-    @FXML
-    private Button button;
+    private ListView<String> listView;
 
 
     /**
-     * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
+     * Creates a {@code HelpCommandPanel} with the given {@code ObservableList}.
      */
-    public HelpCommandPanel(ObservableList<String> commandDescriptionList, MainWindow mw) {
-        super(FXML);
-        this.mw = mw;
-        helpListView.setItems(commandDescriptionList);
-        helpListView.setCellFactory(listView -> new HelpCommandViewCell());
-    }
-
-    public Button getButton() {
-        return button;
-    }
-
-    @FXML
-    public void buttonAction(Event event) {
-        mw.resetMainWindow();
+    public HelpCommandPanel(ObservableList<String> commandDescriptionList) {
+        super();
+        listView.setItems(commandDescriptionList);
+        listView.setCellFactory(listView -> new ListViewCell());
     }
 
     /**
-     * Custom {@code ListCell} that displays the graphics of a {@code Person} using a {@code PersonCard}.
+     * Custom {@code ListCell} that displays the graphics of a {@code String command} using a {@code HelpCard}.
      */
-    class HelpCommandViewCell extends ListCell<String> {
+    class ListViewCell extends ListCell<String> {
         @Override
         protected void updateItem(String command, boolean empty) {
             super.updateItem(command, empty);

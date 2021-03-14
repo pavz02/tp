@@ -4,7 +4,8 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -31,12 +32,12 @@ public class MainWindow extends UiPart<Stage> {
 
     private Stage primaryStage;
     private Logic logic;
-    private Node data;
     private boolean inHelp = false;
 
     // Independent Ui parts residing in this Ui container
-    private PersonListPanel personListPanel;
-    private HelpCommandPanel helpCommandPanel;
+    private Panel orderPanel;
+    private Panel helpPanel;
+    private Button helpPanelToMain;
     private ResultDisplay resultDisplay;
 
     @FXML
@@ -46,10 +47,7 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
-
-    @FXML
-    private StackPane helpCommandPanelPlaceholder;
+    private StackPane listPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -125,9 +123,17 @@ public class MainWindow extends UiPart<Stage> {
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
     }
 
-    void fillPersonListPanel() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+    void fillOrderListPanel() {
+        orderPanel = new OrderListPanel(logic.getFilteredPersonList());
+        listPanelPlaceholder.getChildren().add(orderPanel.getRoot());
+    }
+
+    void initialiseHelpPanelAndButton() {
+        helpPanel = new HelpCommandPanel(HelpCommand.getListOfCommands());
+        helpPanelToMain = new Button("Return to the order list");
+        helpPanelToMain.setOnAction(event -> {
+            resetMainWindow();
+        });
     }
 
     /**
@@ -148,11 +154,13 @@ public class MainWindow extends UiPart<Stage> {
     public void handleHelp() {
         if (!inHelp) {
             inHelp = true;
-            data = personListPanelPlaceholder.getChildren().get(0);
-            personListPanelPlaceholder.getChildren().remove(0);
 
-            helpCommandPanel = new HelpCommandPanel(HelpCommand.getListOfCommands(), this);
-            helpCommandPanelPlaceholder.getChildren().add(helpCommandPanel.getRoot());
+            listPanelPlaceholder.getChildren().remove(0);
+            listPanelPlaceholder.getChildren().add(helpPanel.getRoot());
+
+            helpPanelToMain.setPrefWidth(resultDisplayPlaceholder.getWidth());
+            resultDisplayPlaceholder.getChildren().add(helpPanelToMain);
+            StackPane.setAlignment(helpPanelToMain, Pos.BOTTOM_CENTER);
         }
     }
 
@@ -160,10 +168,14 @@ public class MainWindow extends UiPart<Stage> {
      * Transitions from the help window to the the main order list.
      */
     public void resetMainWindow() {
-        helpCommandPanelPlaceholder.getChildren().remove(0);
-        personListPanelPlaceholder.getChildren().add(data);
+        listPanelPlaceholder.getChildren().remove(0);
+        fillOrderListPanel();
+
+        resultDisplayPlaceholder.getChildren().remove(1);
+
         logger.info("Result: " + HelpCommand.SHOWING_RETURN_MESSAGE);
         resultDisplay.setFeedbackToUser(HelpCommand.SHOWING_RETURN_MESSAGE);
+
         inHelp = false;
     }
 

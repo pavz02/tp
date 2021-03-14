@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 
 /**
- * An UI component that displays information of a {@code Person}.
+ * An UI component that displays information of a {@code String command description}.
  */
 public class HelpCard extends UiPart<Region> {
 
@@ -16,8 +16,6 @@ public class HelpCard extends UiPart<Region> {
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
      * or an exception will be thrown by JavaFX during runtime.
-     *
-     * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
     @FXML
@@ -26,7 +24,8 @@ public class HelpCard extends UiPart<Region> {
     private Label commandDescription;
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code HelpCard} with the given {@code String} to display.
+     * @param command String description of the commands available in CakeCollate.
      */
     public HelpCard(String command) {
         super(FXML);
@@ -45,7 +44,7 @@ public class HelpCard extends UiPart<Region> {
             return false;
         }
 
-        // state check -> do I need this?
+        // state check
         HelpCard card = (HelpCard) other;
         return commandDescription.getText().equals(card.commandDescription.getText());
     }
