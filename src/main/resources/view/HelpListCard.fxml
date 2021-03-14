@@ -16,7 +16,7 @@
             <padding>
                 <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
-            <Label fx:id="commandDescription" styleClass="cell_help_label" text="\$description" />
+            <Label fx:id="commandDescription" styleClass="cell_big_label" text="\$description" />
         </VBox>
     </GridPane>
 </HBox>

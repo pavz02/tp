@@ -29,7 +29,7 @@ public class OrderListPanel extends Panel {
     }
 
     /**
-     * Custom {@code ListCell} that displays the graphics of a {@code Person} using a {@code OrderCard}.
+     * Custom {@code ListCell} that displays the graphics of a {@code Person} using a {@code PersonCard}.
      */
     static class ListViewCell extends ListCell<Person> {
         @Override
@@ -39,7 +39,7 @@ public class OrderListPanel extends Panel {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new OrderCard(person, getIndex() + 1).getRoot());
+                setGraphic(new PersonCard(person, getIndex() + 1).getRoot());
             }
         }
     }
