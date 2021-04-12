@@ -13,20 +13,24 @@ https://ay2021s2-cs2103t-t11-2.github.io/tp/UserGuide.html#1-introduction
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **1. Introduction**
 Welcome to our User Guide and thank you for using CakeCollate! Are you a home baker searching for a reliable tool to keep track of your orders? 
 CakeCollate promises to be an efficient desktop application that allows you to easily consolidate and manage your orders. Our main features include:<br>
 1. Order management
 2. Order Item management
 3. Quick search function for your orders
-3. Reminder for undelivered orders that have delivery dates approaching the current date
-4. Checking the delivery status of your orders
+4. Reminder for undelivered orders that have delivery dates approaching the current date
+5. Checking the delivery status of your orders
 
 It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you're a small-time cake seller that can type fast, CakeCollate can get your order management tasks done faster than traditional GUI applications.
 
 Let us take you through how to use CakeCollate in the rest of our User Guide.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **2. Using the User Guide**
 In this section, you can learn more about the different terminologies and what to expect from each section of the User Guide.
@@ -53,6 +57,8 @@ In [Section 7: Command Summary](#7-command-and-prefix-summary), you can find a s
 ### **2.2 Reading the User Guide**
 In this section, you will learn about CakeCollate's User Interface (UI), the format of commands, and the types of user inputs that you can specify in commands.
 
+<div style="page-break-after: always;"></div>
+
 #### **2.2.1 Sections of the UI**
 ![User Interface](images/Annotated_Ui.PNG)
 
@@ -70,6 +76,8 @@ In this section, you will learn about CakeCollate's User Interface (UI), the for
 4. The **Order Items Box** is where all the different type of order items you have already entered into CakeCollate are displayed. You can think of it as a product catalogue. 
 
 4. The **Order Items Box** is where all the different types of order items you have already entered into CakeCollate are displayed in an order items table.
+
+<div style="page-break-after: always;"></div>
 
 #### **2.2.2 Formatting of the commands**
 
@@ -95,6 +103,8 @@ In this section, you will learn about CakeCollate's User Interface (UI), the for
   E.g. if you specify `help 123`, `123` will be ignored and the command will be interpreted as `help`.
 
 </div>
+
+<div style="page-break-after: always;"></div>
 
 #### **2.2.3 Types of user input**
 In this section, you will learn about the commonly used user inputs as well as their accompanying prefixes. 
@@ -213,6 +223,8 @@ Prefix: `t/`
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **3. Getting started**
 
 1. Ensure you have Java `11` or above installed on your computer.
@@ -242,9 +254,11 @@ You can use the sample data pre-loaded in the application to play around and get
 
    * **`exit`** : Exits the app.
 
-6. Refer to the [Features](#4-features) section below for details of each command.
+6. Refer to the [Features](#4-commands-and-features) section below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **4. Commands and features**
 This section contains information about all existing commands and features that we have implemented.
@@ -547,12 +561,15 @@ If your changes to the data files make their format invalid, CakeCollate will di
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **5. Glossary**
 
 * **Command**: Commands are user inputs that are recognised by CakeCollate to modify the data that is stored or displayed.
 * **JSON**: JSON stands for Javascript Object Notation. It is a format for saving data which provides user-friendliness as it is easy to read and write data in this format.
 * **CLI**: CLI is an abbreviation for Command Line Interface. A Command Line Interface enables the user to interact with the application via commands in text format.
 * **GUI**: GUI is an abbreviation for Graphical User Interface. A Graphical User Interface enables the user to interact with the application by clicking on visual components.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **6. FAQ**
@@ -568,6 +585,8 @@ If your changes to the data files make their format invalid, CakeCollate will di
 on the operating system of the computer that you are running CakeCollate on.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **7. Command and prefix summary**
 
